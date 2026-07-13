@@ -112,7 +112,7 @@ export function HotelCard({ hotel, index = 0, className }: HotelCardProps) {
             )}
           </p>
           <button
-            className="pointer-events-none absolute left-3.5 top-[2.4rem] size-4 text-slate-400"
+            className="pointer-events-none size-4 text-slate-400"
             onClick={() => window.open(hotel.link, "_blank", "noopener,noreferrer")}
           >
             Book Now
