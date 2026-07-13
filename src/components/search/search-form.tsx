@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { Button, Card, Input } from "@/components/ui";
 import { searchFormSchema, type SearchFormValues } from "@/schemas";
 import { cn } from "@/utils";
+import { useEffect } from "react";
 
 export interface SearchFormProps {
   onSubmit: (values: SearchFormValues) => void;
@@ -32,14 +33,26 @@ export function SearchForm({
       checkOutDate: "",
       adults: "",
       children: "",
-      ...Object.fromEntries(
-        Object.entries(defaultValues ?? {}).map(([key, value]) => [
-          key,
-          value === undefined || value === null ? "" : String(value),
-        ]),
-      ),
     },
   });
+
+  useEffect(() => {
+    if (defaultValues) {
+      form.reset({
+        q: "Guwahati",
+        checkInDate: "",
+        checkOutDate: "",
+        adults: "",
+        children: "",
+        ...Object.fromEntries(
+          Object.entries(defaultValues).map(([key, value]) => [
+            key,
+            value == null ? "" : String(value),
+          ])
+        ),
+      });
+    }
+  }, [defaultValues, form]);
 
   const {
     register,
