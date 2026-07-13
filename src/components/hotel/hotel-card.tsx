@@ -111,6 +111,11 @@ export function HotelCard({ hotel, index = 0, className }: HotelCardProps) {
               <span className="text-sm text-slate-400">Price unavailable</span>
             )}
           </p>
+          <button
+            onClick={() => window.open(hotel.link, "_blank", "noopener,noreferrer")}
+          >
+            Book Now
+          </button>
         </div>
       </div>
     </Card>
