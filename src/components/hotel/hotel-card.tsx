@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Star } from "lucide-react";
 
-import { Card } from "@/components/ui";
+import { Button, Card } from "@/components/ui";
 import type { Hotel } from "@/types";
 import { cn, formatCurrency, formatRating, formatReviewCount } from "@/utils";
 
@@ -55,6 +55,7 @@ export function HotelCard({ hotel, index = 0, className }: HotelCardProps) {
             <h3 className="text-base font-semibold tracking-tight text-slate-900 transition-colors group-hover:text-primary-700 sm:text-lg">
               {hotel.name}
             </h3>
+            
             {hotel.rating !== undefined ? (
               <div className="flex shrink-0 items-center gap-1 rounded-lg bg-primary-50 px-2 py-1 text-xs font-semibold text-primary-700">
                 <Star
@@ -111,12 +112,12 @@ export function HotelCard({ hotel, index = 0, className }: HotelCardProps) {
               <span className="text-sm text-slate-400">Price unavailable</span>
             )}
           </p>
-          <button
-            className="pointer-events-none size-4 text-slate-400"
+          <Button
+            className="pointer-events-none text-white"
             onClick={() => window.open(hotel.link, "_blank", "noopener,noreferrer")}
           >
             Book Now
-          </button>
+          </Button>
         </div>
       </div>
     </Card>
